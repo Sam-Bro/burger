@@ -8,9 +8,9 @@ router.get("/", function(req, res) {
         var hdbrsObj = {
             burgers: data
         };
-        Console.log(hdbrsObj)
+        console.log(hdbrsObj)
         res.render("index", hdbrsObj)
-    })
+    });
 
     router.post("/api/burgers", function(req, res) {
         burger.insertOne(
@@ -36,7 +36,7 @@ router.get("/", function(req, res) {
         })
     });
 
-    router.deleteOne(condition, function(req, res) {
+    router.delete("/api/burgers/:id", function(req, res) {
         var condition = "id + " + req.params.id;
         console.log("condition", condition);
 
@@ -46,8 +46,8 @@ router.get("/", function(req, res) {
             } else {
                 res.status(200).end();
             }
-        })
-    })
-})
+        });
+    });
+});
 module.exports = router;
 
