@@ -10,7 +10,7 @@ function createQmarks(num) {
 }
 
 //translate to sql readable query
-function translateSql(obj) {
+function translateSql(ob) {
     var arr = [];
     for (var key in ob) {
         var value = ob[key];
@@ -33,7 +33,7 @@ var orm = {
             }
             cb(res);
         })
-    }
+    },
 
     insertOne: function(table, cols, vals, cb) {
         var dbQuery = "INSERT INTO " + table + " (" + cols.toString() + ") VALUES (" + createQmarks(vals.length) + ") ";
@@ -44,7 +44,7 @@ var orm = {
             }
             cb(res);
         })
-    }
+    },
 
     updateOne: function(table, objColVals, condition, cb) {
         var dbquery = "UPDATE " + table + " SET " + translateSql(objColVals) + " WHERE " + condition;
@@ -55,7 +55,7 @@ var orm = {
             }
             cb(res);
         })
-    }
+    },
 
     deleteOne: function(table, condition, cb) {
         var dbQuery = "DELETE FROM " + table + " WHERE " + condition;
