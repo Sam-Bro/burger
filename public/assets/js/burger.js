@@ -16,7 +16,7 @@ $(function() {
         });
     });
 
-    $(".eatBurger").on("click", function(event) {
+    $(".eatburger").on("click", function(event) {
         event.preventDefault();
 
         var id = $(this).data("id");
@@ -24,7 +24,7 @@ $(function() {
             devoured: 1
         };
         
-        $.ajax("/api/burgers" + id, {
+        $.ajax("/api/burgers/" + id, {
             type: "PUT",
             data: devouredState
         }).then(function() {
@@ -33,7 +33,7 @@ $(function() {
         });
     });
 
-    $(".trashBurger").on("click", function(event) {
+    $(".trashburger").on("click", function(event) {
         event.preventDefault();
 
         var id = $(this).data("id");

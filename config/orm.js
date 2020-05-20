@@ -21,6 +21,7 @@ function translateSql(ob) {
             arr.push(key + "=" + value)
         }
     }
+    return arr.toString();
 }
 
 var orm = {
@@ -47,7 +48,13 @@ var orm = {
     },
 
     updateOne: function(table, objColVals, condition, cb) {
-        var dbquery = "UPDATE " + table + " SET " + translateSql(objColVals) + " WHERE " + condition;
+        var dbQuery =
+        "UPDATE " +
+        table +
+        " SET " +
+        translateSql(objColVals) +
+        " WHERE " +
+        condition;
         console.log(dbQuery)
         connection.query(dbQuery, function(err, res) {
             if (err) {
