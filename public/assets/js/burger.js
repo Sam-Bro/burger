@@ -42,7 +42,7 @@ $(function() {
         $.ajax({
             type: "DELETE",
             url: "/api/burgers/" + id
-        }).then(function() {location.reload()});
+        }).then(location.reload());
     });
 
 });

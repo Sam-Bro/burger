@@ -41,7 +41,7 @@ router.get("/", function(req, res) {
         console.log("condition", condition);
 
         burger.deleteOne(condition, function(result) {
-            if(result, changedRows === 0) {
+            if(result.changedRows === 0) {
                 return res.status(404).end();
             } else {
                 res.status(200).end();
