@@ -1,6 +1,5 @@
 //dependencies
-const mysql = require("mysql");
-const connection; 
+var mysql = require("mysql");
 
 //heroku jawsDB
 if(process.env.JAWSDB_URL) {
